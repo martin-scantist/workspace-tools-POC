@@ -21,12 +21,15 @@ pipeline {
                 script {
                     dockerImage = docker.build "${IMAGE_REPO_NAME}:${IMAGE_TAG}"
                     echo "Image built"
-                    bat "docker exec --rm --name evilfile ${IMAGE_REPO_NAME}:${IMAGE_TAG} bash -c 'ls;pwd' "
-                    // bat "docker exec -it ${IMAGE_REPO_NAME}:${IMAGE_TAG} /bin/bash "
-                    // bat "docker run --name evilfile ${IMAGE_REPO_NAME}:${IMAGE_TAG} /bin/bash "
-                    // bat "docker exec evilfile bash "
-                    // docker exec <container> bash -c "command1 ; command2 ; command3"
+
+                    // to chain commands in container
+                    bat "docker run -d --name evilfile ${IMAGE_REPO_NAME}:${IMAGE_TAG} bash ./fix.sh"
                     echo "Container running"
+                    // bat "docker exec ${IMAGE_REPO_NAME}:${IMAGE_TAG} /bin/bash "
+                    // bat "docker run --name evilfile ${IMAGE_REPO_NAME}:${IMAGE_TAG} /bin/bash "
+                    bat "docker exec evilfile bash -c 'ls ; pwd ' "
+                    // docker exec <container> bash -c "command1 ; command2 ; command3"
+                    echo "Container exited"
 
                 }
 
