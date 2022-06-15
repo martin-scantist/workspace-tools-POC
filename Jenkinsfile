@@ -23,11 +23,11 @@ pipeline {
                     echo "Image built"
 
                     // to chain commands in container
-                    bat "docker run -d --name evilfile ${IMAGE_REPO_NAME}:${IMAGE_TAG} bash ./fix.sh"
+                    bat "docker run --rm --name evilfile ${IMAGE_REPO_NAME}:${IMAGE_TAG} bash -c './fix.sh' "
                     echo "Container running"
                     // bat "docker exec ${IMAGE_REPO_NAME}:${IMAGE_TAG} /bin/bash "
                     // bat "docker run --name evilfile ${IMAGE_REPO_NAME}:${IMAGE_TAG} /bin/bash "
-                    bat "docker exec evilfile bash -c 'ls ; pwd ' "
+                    // bat "docker exec evilfile bash -c 'ls ; pwd ' "
                     // docker exec <container> bash -c "command1 ; command2 ; command3"
                     echo "Container exited"
 
