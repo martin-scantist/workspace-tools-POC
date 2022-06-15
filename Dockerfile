@@ -56,6 +56,8 @@ COPY /fix .
 WORKDIR /home/tester/javascript
 RUN npm install workspace-tools@0.18.3
 
+CMD ["bash"]
+
 ######################################################################
 
 # run the image as a container
@@ -74,5 +76,3 @@ RUN npm install workspace-tools@0.18.3
 # WORKDIR ~/javascript/node_modules/workspace-tools/lib
 # COPY /fix/git.js .
 ####################################################################
-
-CMD ["bash"]
