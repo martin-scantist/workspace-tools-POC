@@ -57,7 +57,8 @@ WORKDIR /home/tester/javascript
 RUN npm install workspace-tools@0.18.3
 
 WORKDIR /home/tester/javascript/fix
-CMD ["bash"]
+ENTRYPOINT [ "sleep" ]
+CMD ["10"]
 
 ######################################################################
 
