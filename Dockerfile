@@ -56,7 +56,7 @@ COPY /fix .
 
 # install vulnerable version
 WORKDIR /home/tester/javascript
-RUN chmod 777 /home/tester/javascript
+RUN sudo chmod 777 /home/tester/javascript
 RUN npm install workspace-tools@0.18.3
 
 WORKDIR /home/tester/javascript/fix
