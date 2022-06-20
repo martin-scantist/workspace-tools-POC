@@ -7,6 +7,7 @@ FROM ubuntu:18.04
 # replace shell with bash so we can source files
 # RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 
+USER root
 # update the repository sources list
 # and install dependencies
 RUN apt-get update && \
@@ -43,7 +44,6 @@ ENV PATH $NVM_DIR/versions/node/v$NODE_VERSION/bin:$PATH
 
 # add user tester
 RUN useradd -rm -d /home/tester -s /bin/bash -g root -G sudo -u 1001 tester
-USER root
 # WORKDIR /home/tester
 
 # copy essential files to container, poc.js

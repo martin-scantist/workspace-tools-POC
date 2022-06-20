@@ -30,5 +30,5 @@ else
 fi
 
 # build npm package on local and upload to code artifact
-cd ~/javascript/node_modules/workspace-tools/
-npm publish
+# cd ~/javascript/node_modules/workspace-tools/
+# npm publish
