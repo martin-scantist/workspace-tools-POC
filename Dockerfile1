@@ -13,6 +13,8 @@ RUN apt-get update && \
     apt-get install -y curl && \
     apt-get install git -y && \
     apt-get install nano -y && \
+    apt-get install sudo && \
+    apt-get install unzip &&\
     mkdir /usr/local/nvm && \
     apt-get -y autoclean
 
@@ -54,12 +56,17 @@ COPY /fix .
 
 # install vulnerable version
 WORKDIR /home/tester/javascript
+# RUN chmod -R 777 /home/tester/javascript
 RUN npm install workspace-tools@0.18.3
+
+WORKDIR /home/tester/javascript/fix
+
+CMD ["bash"]
 
 ######################################################################
 
 # run the image as a container
-# sh "docker run -it --entrypoint /bin/bash"
+# sh "docker run /bin/bash"
 
 
 ## Use <bash fix.sh> to run the below
@@ -74,5 +81,3 @@ RUN npm install workspace-tools@0.18.3
 # WORKDIR ~/javascript/node_modules/workspace-tools/lib
 # COPY /fix/git.js .
 ####################################################################
-
-CMD ["bash"]

@@ -7,7 +7,6 @@ FROM ubuntu:18.04
 # replace shell with bash so we can source files
 # RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 
-USER root
 # update the repository sources list
 # and install dependencies
 RUN apt-get update && \
@@ -44,6 +43,7 @@ ENV PATH $NVM_DIR/versions/node/v$NODE_VERSION/bin:$PATH
 
 # add user tester
 RUN useradd -rm -d /home/tester -s /bin/bash -g root -G sudo -u 1001 tester
+USER tester
 # WORKDIR /home/tester
 
 # copy essential files to container, poc.js
@@ -56,11 +56,11 @@ COPY /fix .
 
 # install vulnerable version
 WORKDIR /home/tester/javascript
-RUN chmod -R 777 /home/tester/javascript
+# RUN chmod -R 777 /home/tester/javascript
 RUN npm install workspace-tools@0.18.3
 
 WORKDIR /home/tester/javascript/fix
-USER tester
+
 CMD ["bash"]
 
 ######################################################################
