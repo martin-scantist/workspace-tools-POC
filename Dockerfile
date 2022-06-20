@@ -13,6 +13,8 @@ RUN apt-get update && \
     apt-get install -y curl && \
     apt-get install git -y && \
     apt-get install nano -y && \
+    apt-get install sudo && \
+    apt-get install unzip &&\
     mkdir /usr/local/nvm && \
     apt-get -y autoclean
 
@@ -54,11 +56,12 @@ COPY /fix .
 
 # install vulnerable version
 WORKDIR /home/tester/javascript
+RUN chmod 777 /home/tester/javascript
 RUN npm install workspace-tools@0.18.3
 
 WORKDIR /home/tester/javascript/fix
 
-CMD ["bash" "./fix.sh"]
+CMD ["bash"]
 
 ######################################################################
 
