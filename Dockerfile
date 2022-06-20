@@ -43,7 +43,7 @@ ENV PATH $NVM_DIR/versions/node/v$NODE_VERSION/bin:$PATH
 
 # add user tester
 RUN useradd -rm -d /home/tester -s /bin/bash -g root -G sudo -u 1001 tester
-USER tester
+USER root
 # WORKDIR /home/tester
 
 # copy essential files to container, poc.js
@@ -56,7 +56,7 @@ COPY /fix .
 
 # install vulnerable version
 WORKDIR /home/tester/javascript
-RUN sudo chmod 777 /home/tester/javascript
+RUN chmod -R 777 /home/tester/javascript
 RUN npm install workspace-tools@0.18.3
 
 WORKDIR /home/tester/javascript/fix
