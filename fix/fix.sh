@@ -1,7 +1,7 @@
 #!/bin/bash
 # run poc to test vulnerable env
 echo "*** Starting POC"
-cd /home/tester/javascript/poc
+cd "/home/tester/javascript/poc"
 node poc.js
 # check the presence of evilfile
 FILE=/home/tester/javascript/poc/evilfile
