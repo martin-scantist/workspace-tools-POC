@@ -21,13 +21,12 @@ if [ -f "$FILE" ]; then
     node poc.js
     if [ -f "$FILE" ]; then
         echo "*** POC fail."
-    else 
+    else
         echo "*** POC success!!!."
     fi
-else 
+else
     echo "*** $FILE does not exist."
 fi
-
 echo "*** End of POC"
 # build npm package on local and upload to code artifact
 # cd /home/tester/javascript/node_modules/workspace-tools/
