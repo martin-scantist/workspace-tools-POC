@@ -60,7 +60,7 @@ WORKDIR /home/tester/javascript
 RUN npm install workspace-tools@0.18.3
 
 WORKDIR /home/tester/javascript/fix
-# USER root
+
 CMD ["bash"]
 
 ######################################################################

@@ -31,3 +31,7 @@ echo "*** End of POC"
 # build npm package on local and upload to code artifact
 # cd /home/tester/javascript/node_modules/workspace-tools/
 # npm publish to AWS code artifact
+# show manual patch and pipeline patch
+
+
+# workspace-tools@0.16.2 commit 7fdc307c3fddd5fdb2e4a563c6a3552d99776a33
