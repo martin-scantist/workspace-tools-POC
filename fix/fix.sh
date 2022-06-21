@@ -30,6 +30,8 @@ else
     echo "*** $FILE does not exist."
 fi
 
+echo "*** End of POC"
+
 # build npm package on local and upload to code artifact
 # cd /home/tester/javascript/node_modules/workspace-tools/
 # npm publish to AWS code artifact
