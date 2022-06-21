@@ -29,7 +29,7 @@ pipeline {
                     echo "Running Container"
                     // bat "docker exec ${IMAGE_REPO_NAME}:${IMAGE_TAG} /bin/bash "
                     // bat "docker run --name evilContainer ${IMAGE_REPO_NAME}:${IMAGE_TAG} /bin/bash -c 'ls ' " //working
-                    bat "docker run --name evilContainer ${IMAGE_REPO_NAME}:${IMAGE_TAG} /bin/bash -c bash fix.sh "
+                    bat "docker run --name evilContainer ${IMAGE_REPO_NAME}:${IMAGE_TAG} /bin/bash fix.sh "
                     
                     // bat "docker exec evilfile bash -c 'ls ; pwd ' "
                     // docker exec <container> bash -c "command1 ; command2 ; command3"
